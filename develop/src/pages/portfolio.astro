@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const projects = await Astro.glob('../projects/*.md');
+---
+
+<Layout title="Projects">
+  <main>
+    <div class="w-auto m-20 flex justify-center flex-wrap">
+      {
+        projects.map((project) => (
+          <Card
+            title={project.frontmatter.title}
+            href="test"
+            imglink={project.frontmatter.imglink}
+            imgalt={project.frontmatter.imgalt}
+          />
+        ))
+      }
+    </div>
+  </main>
+</Layout>
